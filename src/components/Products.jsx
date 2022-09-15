@@ -1,25 +1,27 @@
 import React from 'react'
 
-function Products() {
-  return (
-    <div>
-        <ul className='products'>
-            <li>
-                <div className='product'>
-                    <img src="images/mobile1.jpg" alt=""/>
-                    <p> first roduct</p>
-                    <div className="product-price">
-                        <button>Add to basket </button>
-                        <div className='price'>160000</div>
-                    </div>
+function Products({ item }) {
+    return (
+        <div>
+            <ul className='products'>
+                {
+                    item.map((item) => (
+                        <li key={item.id}>
+                            <div className='product'>
+                                <img src={item.image} alt="" />
+                                <p> {item.title} </p>
+                                <div className="product-price">
+                                    <button>Add to basket </button>
+                                    <div className='price'>{item.price}</div>
+                                </div>
+                            </div>
+                        </li>
+                    ))
 
-                </div>
-
-            </li>
-        </ul>
-      
-    </div>
-  )
+                }
+            </ul>
+        </div>
+    )
 }
 
 export default Products

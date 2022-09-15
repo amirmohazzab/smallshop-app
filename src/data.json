@@ -1,0 +1,52 @@
+{
+     "products": [
+         {
+          "id": "1",
+          "title": "Samsong",
+          "image": "/images/mobile1.jpg",
+          "price": 180,
+          "availableBrand": ["samsung"],
+          "qty": 1
+         },
+         {
+          "id": "2",
+          "title": "Iphone",
+          "image": "/images/mobile2.jpg",
+          "price": 680,
+          "availableBrand": ["iphone"],
+          "qty": 1
+         },
+         {
+          "id": "3",
+          "title": "Motorolla",
+          "image": "/images/mobile3.jpg",
+          "price": 400,
+          "availableBrand": ["motorolla"],
+          "qty": 1
+         },
+         {
+          "id": "4",
+          "title": "Blackberry",
+          "image": "/images/mobile4.jpg",
+          "price": 780,
+          "availableBrand": ["blackberry"],
+          "qty": 1
+         },
+         {
+          "id": "5",
+          "title": "LG",
+          "image": "/images/mobile5.jpg",
+          "price": 920,
+          "availableBrand": ["lg"],
+          "qty": 1
+         },
+         {
+          "id": "6",
+          "title": "Sony",
+          "image": "/images/mobile6.jpg",
+          "price": 1040,
+          "availableBrand": ["sony"],
+          "qty": 1
+         }
+     ]
+}

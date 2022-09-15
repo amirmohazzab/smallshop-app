@@ -1,34 +1,35 @@
 import React from 'react'
 
-function Filter() {
+function Filter(props) {
+    console.log(props);
   return (
     <div className='filter'>
         <div className="result">
-            number of products: 6
+            number of products: {props.count}
         </div>
         <div className="sort">
             <div className="sort-title"> sort on </div>
             <div className="form-checkbox">
                 <div className="form-group">
-                    <input type="radio"/>
+                    <input type="radio" value="asc" name="radiovalues" onChange={props.sortProducts} />
                     <label htmlFor=''> recent products </label>
                 </div>
                 <div className="form-group">
-                    <input type="radio"/>
+                    <input type="radio" value="desc" name="radiovalues" onChange={props.sortProducts} />
                     <label htmlFor=''> oldest products </label>
                 </div>
             </div>
         </div>
         <div className="brand">
                Brands
-            <select>
+            <select value={props.brand} onChange={props.filterProducts}>
                 <option value="">All</option>
-                <option value="">Samsung</option>
-                <option value="">Iphone</option>
-                <option value="">Motorolla</option>
-                <option value="">Blackberry</option>
-                <option value="">LG</option>
-                <option value="">Sony</option>
+                <option value="samsung">Samsung</option>
+                <option value="iphone">Iphone</option>
+                <option value="motorolla">Motorolla</option>
+                <option value="blackberry">Blackberry</option>
+                <option value="lg">LG</option>
+                <option value="sony">Sony</option>
             </select>
         </div>
       
