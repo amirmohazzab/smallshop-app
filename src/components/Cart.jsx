@@ -1,38 +1,48 @@
-import React from 'react'
+import React from 'react';
+import Fade from "react-reveal/Fade";
 
-function Cart() {
-  return (
-    <>
-    <div className="empty-price">shopping basket is empty</div>
-    <div className="cart-item">
-        <div className="product-item">
-            <div className="product-detail">
-                <img src="images/mobile1.jpg" alt=""/>
-                <h2>First product</h2>
+const Cart = ({ cartItems, removeProducts }) => {
+
+    const itemPrice = cartItems.reduce((a,c) => a + c.qty * c.price,0);
+    const totalPrice = itemPrice;
+
+    return (
+        <>
+            {
+                cartItems.length === 0 ?
+                <div className="empty-price"> your shopping basket is empty </div> : 
+                <div className="show-price"> you have {cartItems.length} product in your shopping basket </div>
+            }
+            <div className="cart-item">
+                {
+                    cartItems.map((item) => 
+                        <Fade right>
+                            <div className="product-item" key={item.id}>
+                                <div className="product-detail">
+                                    <img src={item.image} alt="" />
+                                    <h2>{item.title}</h2>
+                                </div>
+                                <div className="product-price">
+                                    <div className="price">
+                                        <span style={{marginRight: "5px", fontSize:"12px"}}>{item.price}</span>
+                                        <span className='qty'> {item.qty} </span>
+                                    </div>
+                                    <div className="remove-item">
+                                        <button onClick={() => removeProducts(item)}> delete </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </Fade>
+                    )
+                }
             </div>
-            <div className="number-product">
-                <div className='numb-product-plus'>+</div>
-                <div className='number'> 1 </div>
-                <div className='numb-product-minus'>-</div>   
+            <div className="total-price">
+                <div className="total-text">total price: </div>
+                <div className="total">{totalPrice}</div>
             </div>
-            <div className="product-price">
-                <div className="price">
-                    <span>10000</span>
-                    <span className='qty'> buy 1</span>
-                </div>
-                <div className="remove-item">
-                    <button> delete </button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div className="total-price">
-        <div className="total-text">total price: </div>
-        <div className="total">1500000</div>
-    </div>
-      
-    </>
-  )
+
+        </>
+    )
 }
 
 export default Cart

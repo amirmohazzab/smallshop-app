@@ -11,6 +11,7 @@ html{
 }
 body {
   height: 100vh;
+  overflow-x: hidden;
 }
 
 .container{
@@ -143,8 +144,21 @@ main{
 
 .empty-price{
   color: crimson;
-  font-size: 1.8rem;
+  font-size: 1.4rem;
+  text-align: center;
+  background-color: rgb(245, 197, 197);
+  padding: 10px 0;
 }
+
+.show-price{
+  color: green;
+  font-size: 1.4rem;
+  text-align: center;
+  background-color: rgb(198, 252, 198);
+  padding: 10px 0;
+}
+
+
 
 .cart-item{
   margin-top: 30px;

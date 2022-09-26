@@ -9,6 +9,8 @@ function Home() {
     const [item, setItem] = useState(data.products);
     const [sort, setSort] = useState("asc");
     const [brand, setBrand] = useState("");
+    const [cartItems, setCartItems] = useState([]);
+    console.log(cartItems);
     
     const sortProducts = (event) => {
         setSort(event.target.value);
@@ -27,10 +29,33 @@ function Home() {
         }else{
             setBrand(event.target.value);
             setItem(data.products.filter((product) => product.availableBrand.indexOf(event.target.value) >=0 ));
-
         }
-        
+    }
 
+    const addProducts = (product) => {
+        const exist = cartItems.find((element) => element.id === product.id);
+
+        if (exist){
+            setCartItems(
+                cartItems.map((element) => element.id === product.id ? {...exist, qty: exist.qty+1}: element)
+            )
+        }else{
+            setCartItems([...cartItems, {...product, qty:1}]);
+        }    
+    }
+
+    const removeProducts = (product) => {
+        const exist = cartItems.find((element) => element.id === product.id);
+
+        if (exist.qty === 1){
+            setCartItems(
+                cartItems.filter((element) => element.id !== product.id)
+            )
+        }else{
+            setCartItems(
+                cartItems.map((element) => element.id === product.id ? {...exist, qty: exist.qty-1}: element)
+            )
+        }    
     }
 
     return (
@@ -47,10 +72,16 @@ function Home() {
                         brand={brand}
                         filterProducts={filterProducts}
                         />
-                        <Products item={item} />
+                        <Products 
+                        item={item} 
+                        addProducts = {addProducts}
+                        />
                     </div>
                     <div className="sidebar">
-                        <Cart />
+                        <Cart
+                        cartItems={cartItems} 
+                        removeProducts={removeProducts}
+                        />
                     </div>
                 </div>
             </main>
