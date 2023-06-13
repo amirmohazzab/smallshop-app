@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/smallshop-app/static/css/main.beb43d61.css",
+    "main.js": "/smallshop-app/static/js/main.c32f06a3.js",
+    "index.html": "/smallshop-app/index.html",
+    "main.beb43d61.css.map": "/smallshop-app/static/css/main.beb43d61.css.map",
+    "main.c32f06a3.js.map": "/smallshop-app/static/js/main.c32f06a3.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.beb43d61.css",
+    "static/js/main.c32f06a3.js"
+  ]
+}
