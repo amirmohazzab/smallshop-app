@@ -3,13 +3,20 @@ import Cart from "./Cart";
 import Filter from "./Filter";
 import Products from './Products';
 import data from '../data.json';
+import { useEffect } from 'react';
+
+const getData = () => {
+    const cartItems = localStorage.getItem('cart');
+    return cartItems ? JSON.parse(cartItems) : [];
+}
 
 function Home() {
 
+    
     const [item, setItem] = useState(data.products);
     const [sort, setSort] = useState("asc");
     const [brand, setBrand] = useState("");
-    const [cartItems, setCartItems] = useState([]);
+    const [cartItems, setCartItems] = useState(getData());
     console.log(cartItems);
     
     const sortProducts = (event) => {
@@ -57,6 +64,12 @@ function Home() {
             )
         }    
     }
+
+
+    useEffect(()=>{
+        localStorage.setItem('cart', JSON.stringify(cartItems))
+    }, [cartItems]);
+
 
     return (
         <div className="container">

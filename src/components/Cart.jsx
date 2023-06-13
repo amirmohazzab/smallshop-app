@@ -3,6 +3,7 @@ import Fade from "react-reveal/Fade";
 
 const Cart = ({ cartItems, removeProducts }) => {
 
+
     const itemPrice = cartItems.reduce((a,c) => a + c.qty * c.price,0);
     const totalPrice = itemPrice;
 
